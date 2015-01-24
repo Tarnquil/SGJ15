@@ -5,26 +5,24 @@ using UnityEngine.UI;
 public class PowerBar : MonoBehaviour
 {
 	Slider slider;
-	public GameObject[] Powers;
-	GameObject currentPower;
+	public Sprite[] icons;
 	public CameraController opCamera;
-
+	public Image activePower;
+	public float rotatePowerTimer;
 	public float addedPower = 0.1f;
+	public int powerNumber = 0;
+	public int numberOfPowers = 2;
 
 	// Use this for initialization
 	void Start()
 	{
 		slider = GetComponent<Slider>();
+		StartCoroutine("PowerSlotMachine");
 	}
 	
 	// Update is called once per frame
 	void Update()
 	{
-		if(slider.value == 1)
-		{
-			opCamera.UsePower(UnityEngine.Random.Range(0, 2));
-			ResetPower();
-		}
 		//DEBUG CODE
 		if(Input.GetKey(KeyCode.P))
 		{
@@ -36,21 +34,34 @@ public class PowerBar : MonoBehaviour
 		}
 	}
 
+	public void UsePower()
+	{
+		opCamera.UsePower(powerNumber);
+		ResetPower();
+	}
+
 	public void AddPower()
 	{
 		slider.value += addedPower;
+		slider.value = Mathf.Clamp(slider.value, 0.0f, 1.0f);
 	}
 
 	public void ResetPower()
 	{
 		slider.value = 0;
 	}
-
-	void SelectPower()
+	
+	IEnumerator PowerSlotMachine()
 	{
-		int random = Random.Range(0, Powers.Length);
-		currentPower = Powers[random];
-		currentPower.SendMessage("Activate", SendMessageOptions.DontRequireReceiver);
+		yield return new WaitForSeconds(rotatePowerTimer);
+		powerNumber++;
+		if(powerNumber == numberOfPowers)
+		{
+			powerNumber = 0;
+		}
+		activePower.sprite = icons[powerNumber];
+		StartCoroutine("PowerSlotMachine");
 	}
+
 
 }

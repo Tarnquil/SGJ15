@@ -53,12 +53,10 @@ public class CameraController : MonoBehaviour
 				ShakeCamera();
 				break;
 			case Powers.Shrink:
-				if(shrinking)
-				{
-					shrinking = true;
-					StopCoroutine("StopShrink");
-					StartCoroutine("StopShrink");
-				}
+				shrinking = true;
+				StopCoroutine("StopShrink");
+				StartCoroutine("StopShrink");
+		
 				;
 				break;
 		}
