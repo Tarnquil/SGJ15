@@ -4,9 +4,12 @@ using UnityEngine.UI;
 
 public class PowerBar : MonoBehaviour 
 {
-	public Text text;
 	Slider slider;
+	public GameObject[] Powers;
+	GameObject currentPower;
+
 	public float addedPower = 0.1f;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -16,8 +19,10 @@ public class PowerBar : MonoBehaviour
 	// Update is called once per frame
 	void Update() 
 	{
-		text.text = Mathf.Floor(Time.time).ToString();
-
+		if(slider.value == 1)
+		{
+			SelectPower();
+		}
 		//DEBUG CODE
 		if(Input.GetKey(KeyCode.D))
 		{
@@ -38,4 +43,12 @@ public class PowerBar : MonoBehaviour
 	{
 		slider.value = 0;
 	}
+
+	void SelectPower()
+	{
+		int random = Random.Range(0,Powers.Length);
+		currentPower = Powers[random];
+		currentPower.SendMessage("Activate", SendMessageOptions.DontRequireReceiver);
+	}
+
 }
