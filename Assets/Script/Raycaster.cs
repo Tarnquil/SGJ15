@@ -5,20 +5,20 @@ using System.Collections.Generic;
 
 public class Raycaster : MonoBehaviour
 {
+
+	public PowerBar powerBar;
+
 		public Text debugText;
 		struct DragPair
 		{
 				public int fingerId;
 				public GameObject dragObject;
 		}
+	void Start ()
+	{
 
-		List<DragPair> draggingObjects;
-
-		void Start ()
-		{
-				draggingObjects = new List<DragPair> ();
-		}
-
+	}
+	
 		void Update ()
 		{
 				/*	if (Input.GetMouseButtonDown (0)) {
@@ -49,8 +49,23 @@ public class Raycaster : MonoBehaviour
 						if (index != -1) {
 								draggingObjects.RemoveAt (index);
 						}
+>>>>>>> FETCH_HEAD
 				}
+			}
+		}
 
+<<<<<<< HEAD
+		foreach (DragPair pair in draggingObjects) 
+		{
+			if (pair.fingerId != -1) 
+			{
+
+			} 
+			else 
+			{
+
+			}
+=======
 				foreach (DragPair pair in draggingObjects) {
 						if (pair.fingerId != -1) {
 
@@ -77,21 +92,26 @@ public class Raycaster : MonoBehaviour
 										}
 								}
 						}
-				}
-		}
 
-		GameObject TouchCheck (Vector3 _point)
+		}
+	}
+
+	GameObject TouchCheck (Vector3 _point)
+	{
+		Vector3 hitThing = _point;
+		hitThing.z = 10;
+		Vector3 wp = this.gameObject.camera.ScreenToWorldPoint (hitThing);
+		Vector2 touchPos = new Vector2 (wp.x, wp.y);
+		Collider2D hit = Physics2D.OverlapPoint (touchPos);
+		if (hit != null) 
 		{
-				Vector3 hitThing = _point;
-				hitThing.z = 10;
-				Vector3 wp = this.gameObject.camera.ScreenToWorldPoint (hitThing);
-				Vector2 touchPos = new Vector2 (wp.x, wp.y);
-				Collider2D hit = Physics2D.OverlapPoint (touchPos);
-				if (hit != null) {
-						return hit.gameObject;
-				} else {
-						return null;
-				}
-
+			powerBar.AddPower();
+			return hit.gameObject;
+		} 
+		else 
+		{
+			return null;
 		}
+
+	}
 }
