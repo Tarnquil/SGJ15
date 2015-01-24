@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
 guid: 3272477281f694140bbc3799dfb2291c
-=======
-guid: 4ecf71f644300443797c8ae1197fe0c0
->>>>>>> Stashed changes
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2
@@ -25,11 +21,10 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-<<<<<<< Updated upstream
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -37,34 +32,15 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
-=======
-    aniso: -1
-    mipBias: -1
-    wrapMode: -1
-  nPOTScale: 1
-  lightmap: 0
-  compressionQuality: 50
-  spriteMode: 0
->>>>>>> Stashed changes
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
-<<<<<<< Updated upstream
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings:
-  - buildTarget: Android
-    maxTextureSize: 1024
-    textureFormat: -1
-    compressionQuality: 50
-=======
-  alphaIsTransparency: 0
-  textureType: -1
   buildTargetSettings: []
->>>>>>> Stashed changes
   spriteSheet:
     sprites: []
   spritePackingTag: 
