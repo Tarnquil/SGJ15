@@ -2,29 +2,31 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class PowerBar : MonoBehaviour 
+public class PowerBar : MonoBehaviour
 {
 	Slider slider;
 	public GameObject[] Powers;
 	GameObject currentPower;
+	public CameraController opCamera;
 
 	public float addedPower = 0.1f;
 
 	// Use this for initialization
-	void Start () 
+	void Start()
 	{
 		slider = GetComponent<Slider>();
 	}
 	
 	// Update is called once per frame
-	void Update() 
+	void Update()
 	{
 		if(slider.value == 1)
 		{
-			SelectPower();
+			opCamera.UsePower(UnityEngine.Random.Range(0, 2));
+			ResetPower();
 		}
 		//DEBUG CODE
-		if(Input.GetKey(KeyCode.D))
+		if(Input.GetKey(KeyCode.P))
 		{
 			AddPower();
 		}
@@ -46,7 +48,7 @@ public class PowerBar : MonoBehaviour
 
 	void SelectPower()
 	{
-		int random = Random.Range(0,Powers.Length);
+		int random = Random.Range(0, Powers.Length);
 		currentPower = Powers[random];
 		currentPower.SendMessage("Activate", SendMessageOptions.DontRequireReceiver);
 	}
