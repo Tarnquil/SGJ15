@@ -7,10 +7,21 @@ public class TapSequence : MonoBehaviour
 		public GameObject tapObject;
 		public Vector2[] spawnPositions;
 		public float[] timeBetweenSpawns;
+		public int tappedObject;
+		public Sequencer sequencer;
 
 		void Start ()
 		{
 				StartSequence ();
+		}
+
+		void Update ()
+		{
+				if (tappedObject == numberInSequence) {
+						sequencer = this.gameObject.transform.parent.gameObject.GetComponent<Sequencer> ();
+						sequencer.FinishedSequence ();
+						Destroy (this.gameObject);
+				}
 		}
 
 		public void StartSequence ()
@@ -27,6 +38,7 @@ public class TapSequence : MonoBehaviour
 						obj.transform.parent = this.gameObject.transform;
 						obj.transform.rotation = Quaternion.identity;
 						obj.transform.localPosition = newPos;
+						//obj.transform.parent = null;
 						yield return new WaitForSeconds (timeBetweenSpawns [i]);
 				}
 		}
