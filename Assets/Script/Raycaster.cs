@@ -1,15 +1,46 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Raycaster : MonoBehaviour
 {
+		struct DragPair
+		{
+				public int fingerId;
+				public GameObject dragObject;
+		}
+
+		List<DragPair> draggingObjects;
+
+		void Start ()
+		{
+				draggingObjects = new List<DragPair> ();
+		}
+
 		void Update ()
 		{
 				if (Input.GetMouseButtonDown (0)) {
 						GameObject touched = TouchCheck (Input.mousePosition);
 						if (touched != null) {
-								Debug.Log (touched);
-								touched.GetComponent<Obj> ().OnTouch ();
+								if (touched.GetComponent<Obj> ()) {
+										Obj touchedObj = touched.GetComponent<Obj> ();
+										touchedObj.OnTouch ();
+										if (touchedObj.draggable == true) {
+												DragPair drag = new DragPair ();
+												drag.fingerId = -1;
+												drag.dragObject = touchedObj.gameObject;
+												draggingObjects.Add (drag);
+										}
+								}
+
+						}
+				}
+
+				foreach (DragPair pair in draggingObjects) {
+						if (pair.fingerId != -1) {
+
+						} else {
+
 						}
 				}
 

@@ -5,6 +5,7 @@ public class Obj : MonoBehaviour
 {
 		public float tweenInTime = 0.0f;
 		public iTween.EaseType ease;
+		public bool draggable = false;
 		// Use this for initialization
 		void Start ()
 		{
@@ -41,6 +42,11 @@ public class Obj : MonoBehaviour
 		public virtual void OnTouch ()
 		{
 				//ScaleOut ();
+		}
+
+		public virtual void OnRelease ()
+		{
+
 		}
 
 		void TurnOnCollider ()
