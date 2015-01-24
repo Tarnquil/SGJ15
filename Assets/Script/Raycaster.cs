@@ -8,37 +8,41 @@ public class Raycaster : MonoBehaviour
 
 	public PowerBar powerBar;
 
-		public Text debugText;
-		struct DragPair
-		{
-				public int fingerId;
-				public GameObject dragObject;
-		}
-	void Start ()
+	public Text debugText;
+	struct DragPair
+	{
+		public int fingerId;
+		public GameObject dragObject;
+	}
+	void Start()
 	{
 
 	}
 	
-		void Update ()
+	void Update()
+	{
+		if(Input.GetMouseButtonDown(0))
 		{
-				/*	if (Input.GetMouseButtonDown (0)) {
-						GameObject touched = TouchCheck (Input.mousePosition);
-						if (touched != null) {
-								if (touched.GetComponent<Obj> ()) {
-										Obj touchedObj = touched.GetComponent<Obj> ();
-										touchedObj.OnTouch ();
-										/*if (touchedObj.draggable == true) {
-												DragPair drag = new DragPair ();
-												drag.fingerId = -1;
-												drag.dragObject = touchedObj.gameObject;
-												draggingObjects.Add (drag);
-										}
-								}
+			GameObject touched = TouchCheck(Input.mousePosition);
+			if(touched != null)
+			{
+				if(touched.GetComponent<Obj>())
+				{
+					Obj touchedObj = touched.GetComponent<Obj>();
+					touchedObj.OnTouch();
+//					if(touchedObj.draggable == true)
+//					{
+//						DragPair drag = new DragPair();
+//						drag.fingerId = -1;
+//						drag.dragObject = touchedObj.gameObject;
+//						draggingObjects.Add(drag);
+//					}
+				}
 
-						}
-				}*/
+			}
+		}
 
-				/*if (Input.GetMouseButtonUp (0)) {
+		/*if (Input.GetMouseButtonUp (0)) {
 						int index = -1;
 						for (int i = 0; i < draggingObjects.Count; i++) {
 								if (draggingObjects [i].fingerId == -1) {
@@ -78,37 +82,41 @@ public class Raycaster : MonoBehaviour
 						}
 				}*/
 
-				if (Input.touchCount > 0) {
+		if(Input.touchCount > 0)
+		{
 						
-						foreach (Touch touch in Input.touches) {
-								if (touch.phase == TouchPhase.Began) {
-										//	debugText.text = "Tapped";
-										GameObject touched = TouchCheck (touch.position);
-										if (touched != null) {
-												Debug.Log (touched.name);
-												if (touched.GetComponent<Obj> ()) {
-														touched.GetComponent<Obj> ().OnTouch ();
-												}
-										}
-								}
+			foreach(Touch touch in Input.touches)
+			{
+				if(touch.phase == TouchPhase.Began)
+				{
+					//	debugText.text = "Tapped";
+					GameObject touched = TouchCheck(touch.position);
+					if(touched != null)
+					{
+						Debug.Log(touched.name);
+						if(touched.GetComponent<Obj>())
+						{
+							touched.GetComponent<Obj>().OnTouch();
 						}
+					}
+				}
+			}
 
 		}
 	}
 
-	GameObject TouchCheck (Vector3 _point)
+	GameObject TouchCheck(Vector3 _point)
 	{
 		Vector3 hitThing = _point;
 		hitThing.z = 10;
-		Vector3 wp = this.gameObject.camera.ScreenToWorldPoint (hitThing);
-		Vector2 touchPos = new Vector2 (wp.x, wp.y);
-		Collider2D hit = Physics2D.OverlapPoint (touchPos);
-		if (hit != null) 
+		Vector3 wp = this.gameObject.camera.ScreenToWorldPoint(hitThing);
+		Vector2 touchPos = new Vector2(wp.x, wp.y);
+		Collider2D hit = Physics2D.OverlapPoint(touchPos);
+		if(hit != null)
 		{
 			powerBar.AddPower();
 			return hit.gameObject;
-		} 
-		else 
+		} else
 		{
 			return null;
 		}
