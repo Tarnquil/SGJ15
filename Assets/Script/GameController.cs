@@ -13,7 +13,8 @@ public class GameController : MonoBehaviour
 				END,
 				NULL
 		}
-
+		public AudioClip countDown;
+		public AudioClip GO;
 		public GameState currentState;
 		public GameState prevState;
 		public Sequencer playerOneSequencer;
@@ -115,11 +116,15 @@ public class GameController : MonoBehaviour
 
 						playerOneCountDown.text = (betweenRounds - i).ToString ();
 						playerTwoCountDown.text = (betweenRounds - i).ToString ();
+						this.gameObject.audio.PlayOneShot (countDown);
 						yield return new WaitForSeconds (1.0f);
 				}
 
 				playerOneCountDown.enabled = false;
 				playerTwoCountDown.enabled = false;
+		
+				this.gameObject.audio.PlayOneShot (GO);
+				
 				currentState = GameState.IN_ROUND;
 		}
 
