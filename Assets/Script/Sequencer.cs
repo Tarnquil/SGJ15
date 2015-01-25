@@ -14,6 +14,15 @@ public class Sequencer : MonoBehaviour
 		{
 				//SpawnSequence ();
 		}
+
+		public void LostSequence ()
+		{
+				if (playerNumber == 1) {
+						cont.FinishedSequence (2);
+				} else {
+						cont.FinishedSequence (1);
+				}
+		}
 		
 		public void FinishedSequence ()
 		{
