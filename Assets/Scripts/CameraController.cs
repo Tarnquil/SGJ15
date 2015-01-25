@@ -6,7 +6,9 @@ public class CameraController : MonoBehaviour
 	enum Powers
 	{
 		Shake,
-		Shrink
+		Shrink,
+		Bombs
+
 	}
 	public float shakeX = 1;
 	public float shakeY = 1;
@@ -16,6 +18,8 @@ public class CameraController : MonoBehaviour
 	bool shrinking = false;
 	public float shrinkPos = 0.12f;
 	public float normalPos = 0.5f;
+
+	public Sequencer sequencer;
 
 	// Use this for initialization
 	void Start()
@@ -39,7 +43,8 @@ public class CameraController : MonoBehaviour
 		if(shrinking)
 		{
 			ReduceSize();
-		} else
+		} 
+		else
 		{
 			IncreaseSize();
 		}
@@ -56,8 +61,9 @@ public class CameraController : MonoBehaviour
 				shrinking = true;
 				StopCoroutine("StopShrink");
 				StartCoroutine("StopShrink");
-		
-				;
+				break;
+			case Powers.Bombs:
+				sequencer.bombs = true;
 				break;
 		}
 	}
