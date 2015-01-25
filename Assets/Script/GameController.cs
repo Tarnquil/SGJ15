@@ -33,6 +33,9 @@ public class GameController : MonoBehaviour
 		public int playerOneScore = 0;
 		public int playerTwoScore = 0;
 		public float endTimer = 0;
+
+		public Text p1Score;
+		public Text p2Score;
 		// Use this for initialization
 		void Start ()
 		{
@@ -93,9 +96,11 @@ public class GameController : MonoBehaviour
 
 				if (_player == 1) {
 						playerOneScore++;
+						p1Score.text = playerOneScore.ToString ();
 						playerTwoPowerBar.AddPower (powerBoost);
 				} else {
 						playerTwoScore++;
+						p2Score.text = playerTwoScore.ToString ();
 						playerOnePowerBar.AddPower (powerBoost);
 				}
 				currentSequence++;
