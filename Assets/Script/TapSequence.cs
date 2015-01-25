@@ -19,12 +19,13 @@ public class TapSequence : MonoBehaviour
 
 		void Update ()
 		{
-			if (tappedObject == numberInSequence) 
-			{
-				sequencer = this.gameObject.transform.parent.gameObject.GetComponent<Sequencer> ();
-				sequencer.FinishedSequence ();
-				Destroy (this.gameObject);
-			}
+
+				if (tappedObject == numberInSequence) {
+						sequencer = this.gameObject.transform.parent.gameObject.GetComponent<Sequencer> ();
+						sequencer.FinishedSequence ();
+						//Destroy (this.gameObject);
+				}
+
 		}
 
 		public void StartSequence ()

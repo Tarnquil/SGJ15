@@ -6,23 +6,18 @@ public class Sequencer : MonoBehaviour
 	public GameObject[] sequences;
 	public int sequenceNumber = 0;
 	public bool bombs;
+
 	// Use this for initialization
 
 	void Start()
 	{
 		SpawnSequence();
 	}
-	
-	// Update is called once per frame
-	void Update()
-	{
-	
-	}
-
-	public void FinishedSequence()
-	{
-
-	}
+		
+		public void FinishedSequence ()
+		{
+			//	cont.FinishedSequence (playerNumber);
+		}
 
 	public void SpawnSequence()
 	{
@@ -37,5 +32,5 @@ public class Sequencer : MonoBehaviour
 			obj.GetComponent<TapSequence>().bombs = true;
 		}
 
-	}
+		}
 }
