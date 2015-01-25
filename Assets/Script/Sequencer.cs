@@ -12,7 +12,7 @@ public class Sequencer : MonoBehaviour
 
 		void Start ()
 		{
-				SpawnSequence ();
+				//SpawnSequence ();
 		}
 		
 		public void FinishedSequence ()
