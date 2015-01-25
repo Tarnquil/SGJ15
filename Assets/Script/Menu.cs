@@ -8,4 +8,9 @@ public class Menu : MonoBehaviour
 		{
 				Application.LoadLevel ("BestOf");
 		}
+
+		public void HowToMenu ()
+		{
+				Application.LoadLevel ("HowTo");
+		}
 }
