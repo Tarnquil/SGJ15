@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour
 		public GameState prevState;
 		public Sequencer playerOneSequencer;
 		public Sequencer playerTwoSequencer;
+		public PowerBar playerOnePowerBar;
+		public PowerBar playerTwoPowerBar;
 		public Button playerOneActionButton;
 		public Button playerTwoActionButton;
 		public int numberOfSequences = 0;
@@ -26,7 +28,7 @@ public class GameController : MonoBehaviour
 		public int betweenRounds = 2;
 		public Text playerOneCountDown;
 		public Text playerTwoCountDown;
-
+		public float powerBoost;
 		public int playerOneScore = 0;
 		public int playerTwoScore = 0;
 		public float endTimer = 0;
@@ -45,8 +47,6 @@ public class GameController : MonoBehaviour
 				switch (currentState) {
 				case GameState.BETWEEN_ROUND: 
 						if (prevState != currentState) {
-								//playerOneActionButton.enabled = true;
-								//playerTwoActionButton.enabled = true;
 								StartCoroutine ("Countdown");
 						} else {
 
@@ -56,8 +56,6 @@ public class GameController : MonoBehaviour
 
 				case GameState.IN_ROUND: 
 						if (prevState != currentState) {
-								//playerOneActionButton.enabled = false;
-								//playerTwoActionButton.enabled = false;
 								playerOneSequencer.SpawnSequence ();
 								playerTwoSequencer.SpawnSequence ();
 						}
@@ -65,8 +63,6 @@ public class GameController : MonoBehaviour
 						break;
 				case GameState.END:
 						if (prevState != currentState) {
-								//playerOneActionButton.enabled = false;
-								//playerTwoActionButton.enabled = false;
 
 								playerOneCountDown.enabled = true;
 								playerTwoCountDown.enabled = true;
@@ -95,8 +91,10 @@ public class GameController : MonoBehaviour
 
 				if (_player == 1) {
 						playerOneScore++;
+						playerTwoPowerBar.AddPower (powerBoost);
 				} else {
 						playerTwoScore++;
+						playerOnePowerBar.AddPower (powerBoost);
 				}
 				currentSequence++;
 				if (currentSequence == numberOfSequences) {

@@ -4,64 +4,71 @@ using UnityEngine.UI;
 
 public class PowerBar : MonoBehaviour
 {
-	Slider slider;
-	public Sprite[] icons;
-	public CameraController opCamera;
-	public Image activePower;
-	public float rotatePowerTimer;
-	public float addedPower = 0.1f;
-	public int powerNumber = 0;
-	public int numberOfPowers = 2;
+		Slider slider;
+		public Sprite[] icons;
+		public CameraController opCamera;
+		public Image activePower;
+		public float rotatePowerTimer;
+		public float addedPower = 0.1f;
+		public int powerNumber = 0;
+		public int numberOfPowers = 2;
 
-	// Use this for initialization
-	void Start()
-	{
-		slider = GetComponent<Slider>();
-		StartCoroutine("PowerSlotMachine");
-	}
+		// Use this for initialization
+		void Start ()
+		{
+				slider = GetComponent<Slider> ();
+				StartCoroutine ("PowerSlotMachine");
+		}
 	
-	// Update is called once per frame
-	void Update()
-	{
-		//DEBUG CODE
-		if(Input.GetKey(KeyCode.P))
+		// Update is called once per frame
+		void Update ()
 		{
-			AddPower();
+				//DEBUG CODE
+				if (Input.GetKey (KeyCode.P)) {
+						AddPower ();
+				}
+				if (Input.GetKey (KeyCode.A)) {
+						ResetPower ();
+				}
 		}
-		if(Input.GetKey(KeyCode.A))
+
+		public void UsePower ()
 		{
-			ResetPower();
+				Debug.Log ("***PRESSED");
+				if (slider.value == 1) {
+						opCamera.UsePower (powerNumber);
+						ResetPower ();
+				}
 		}
-	}
 
-	public void UsePower()
-	{
-		opCamera.UsePower(powerNumber);
-		ResetPower();
-	}
+		public void AddPower ()
+		{
+				slider.value += addedPower;
+				slider.value = Mathf.Clamp (slider.value, 0.0f, 1.0f);
+		}
 
-	public void AddPower()
-	{
-		slider.value += addedPower;
-		slider.value = Mathf.Clamp(slider.value, 0.0f, 1.0f);
-	}
+		public void AddPower (float _amount)
+		{
+				slider.value += _amount;
+				slider.value = Mathf.Clamp (slider.value, 0.0f, 1.0f);
+		}
 
-	public void ResetPower()
-	{
-		slider.value = 0;
-	}
+
+		public void ResetPower ()
+		{
+				slider.value = 0;
+		}
 	
-	IEnumerator PowerSlotMachine()
-	{
-		yield return new WaitForSeconds(rotatePowerTimer);
-		powerNumber++;
-		if(powerNumber == numberOfPowers)
+		IEnumerator PowerSlotMachine ()
 		{
-			powerNumber = 0;
+				yield return new WaitForSeconds (rotatePowerTimer);
+				powerNumber++;
+				if (powerNumber == numberOfPowers) {
+						powerNumber = 0;
+				}
+				activePower.sprite = icons [powerNumber];
+				StartCoroutine ("PowerSlotMachine");
 		}
-		activePower.sprite = icons[powerNumber];
-		StartCoroutine("PowerSlotMachine");
-	}
 
 
 }
