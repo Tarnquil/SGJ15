@@ -43,8 +43,8 @@ public class GameController : MonoBehaviour
 				switch (currentState) {
 				case GameState.BETWEEN_ROUND: 
 						if (prevState != currentState) {
-								playerOneActionButton.enabled = true;
-								playerTwoActionButton.enabled = true;
+								//playerOneActionButton.enabled = true;
+								//playerTwoActionButton.enabled = true;
 								StartCoroutine ("Countdown");
 						} else {
 
@@ -54,8 +54,8 @@ public class GameController : MonoBehaviour
 
 				case GameState.IN_ROUND: 
 						if (prevState != currentState) {
-								playerOneActionButton.enabled = false;
-								playerTwoActionButton.enabled = false;
+								//playerOneActionButton.enabled = false;
+								//playerTwoActionButton.enabled = false;
 								playerOneSequencer.SpawnSequence ();
 								playerTwoSequencer.SpawnSequence ();
 						}
@@ -63,8 +63,8 @@ public class GameController : MonoBehaviour
 						break;
 				case GameState.END:
 						if (prevState != currentState) {
-								playerOneActionButton.enabled = false;
-								playerTwoActionButton.enabled = false;
+								//playerOneActionButton.enabled = false;
+								//playerTwoActionButton.enabled = false;
 
 								playerOneCountDown.enabled = true;
 								playerTwoCountDown.enabled = true;
