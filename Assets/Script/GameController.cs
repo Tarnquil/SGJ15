@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
 
 		public int playerOneScore = 0;
 		public int playerTwoScore = 0;
+		public float endTimer = 0;
 		// Use this for initialization
 		void Start ()
 		{
@@ -76,6 +77,7 @@ public class GameController : MonoBehaviour
 										playerOneCountDown.text = "LOSE";
 										playerTwoCountDown.text = "WIN";
 								}
+								StartCoroutine ("EndTimer");
 			
 						}
 						;
@@ -119,6 +121,12 @@ public class GameController : MonoBehaviour
 				playerOneCountDown.enabled = false;
 				playerTwoCountDown.enabled = false;
 				currentState = GameState.IN_ROUND;
+		}
+
+		IEnumerator EndTimer ()
+		{
+				yield return new WaitForSeconds (endTimer);
+				Application.LoadLevel ("Menu");
 		}
 
 
