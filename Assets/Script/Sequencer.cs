@@ -3,31 +3,33 @@ using System.Collections;
 
 public class Sequencer : MonoBehaviour
 {
-	public GameObject[] sequences;
-	public int sequenceNumber = 0;
-	// Use this for initialization
-	void Start()
-	{
+		public GameObject[] sequences;
+		public int sequenceNumber = 0;
+		public GameController cont;
+		public int playerNumber = 0;
+		// Use this for initialization
+		void Start ()
+		{
 
-	}
+		}
 	
-	// Update is called once per frame
-	void Update()
-	{
+		// Update is called once per frame
+		void Update ()
+		{
 	
-	}
+		}
 
-	public void FinishedSequence()
-	{
+		public void FinishedSequence ()
+		{
+				cont.FinishedSequence (playerNumber);
+		}
 
-	}
-
-	public void SpawnSequence()
-	{
-		GameObject obj = Instantiate(sequences[sequenceNumber],
+		public void SpawnSequence ()
+		{
+				GameObject obj = Instantiate (sequences [sequenceNumber],
 		                              this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
-		obj.transform.parent = this.gameObject.transform;
-		sequenceNumber++;
+				obj.transform.parent = this.gameObject.transform;
+				sequenceNumber++;
 
-	}
+		}
 }
