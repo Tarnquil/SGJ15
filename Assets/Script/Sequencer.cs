@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Sequencer : MonoBehaviour
 {
-		public GameObject[] sequences;
+		
 		public int sequenceNumber = 0;
 		public bool bombs;
 		public GameController cont;
@@ -29,9 +29,9 @@ public class Sequencer : MonoBehaviour
 				cont.FinishedSequence (playerNumber);
 		}
 
-		public void SpawnSequence ()
+		public void SpawnSequence (GameObject sequence)
 		{
-				GameObject obj = Instantiate (sequences [sequenceNumber],
+				GameObject obj = Instantiate (sequence,
 		                              this.gameObject.transform.position, 
 		                             this.gameObject.transform.rotation) as GameObject;
 				obj.transform.parent = this.gameObject.transform;

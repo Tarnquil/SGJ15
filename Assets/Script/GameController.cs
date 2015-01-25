@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
 		public PowerBar playerTwoPowerBar;
 		public Button playerOneActionButton;
 		public Button playerTwoActionButton;
+		public GameObject[] sequences;
 		public int numberOfSequences = 0;
 		public int currentSequence = 0;
 		public int betweenRounds = 2;
@@ -56,8 +57,9 @@ public class GameController : MonoBehaviour
 
 				case GameState.IN_ROUND: 
 						if (prevState != currentState) {
-								playerOneSequencer.SpawnSequence ();
-								playerTwoSequencer.SpawnSequence ();
+								int rnd = Random.Range (0, sequences.Length);
+								playerOneSequencer.SpawnSequence (sequences [rnd]);
+								playerTwoSequencer.SpawnSequence (sequences [rnd]);
 						}
 						;
 						break;
