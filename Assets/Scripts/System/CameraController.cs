@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				//	ReduceSize();
+
 		}
 	
 		// Update is called once per frame

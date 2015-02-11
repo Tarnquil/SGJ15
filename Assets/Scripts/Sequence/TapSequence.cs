@@ -49,6 +49,7 @@ public class TapSequence : MonoBehaviour
 						obj.transform.parent = this.gameObject.transform;
 						obj.transform.rotation = Quaternion.identity;
 						obj.transform.localPosition = newPos;
+						obj.transform.localScale = Vector3.one;
 						//obj.transform.parent = null;
 						yield return new WaitForSeconds (timeBetweenSpawns [i]);
 				
