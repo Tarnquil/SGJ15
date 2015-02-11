@@ -6,8 +6,11 @@ public class PowerBar : MonoBehaviour
 {
 		Slider slider;
 		public Sprite[] icons;
+		public Sprite normalImage;
+		public Sprite powerImage;
 		public CameraController opCamera;
 		public Image activePower;
+		public Image boarder;
 		public float rotatePowerTimer;
 		public float addedPower = 0.1f;
 		public int powerNumber = 0;
@@ -45,18 +48,26 @@ public class PowerBar : MonoBehaviour
 		{
 				slider.value += addedPower;
 				slider.value = Mathf.Clamp (slider.value, 0.0f, 1.0f);
+				if (slider.value == 1.0f) {
+						boarder.sprite = powerImage;
+				}
 		}
 
 		public void AddPower (float _amount)
 		{
 				slider.value += _amount;
 				slider.value = Mathf.Clamp (slider.value, 0.0f, 1.0f);
+				if (slider.value == 1.0f) {
+						boarder.sprite = powerImage;
+				}
 		}
 
 
 		public void ResetPower ()
 		{
 				slider.value = 0;
+				boarder.sprite = normalImage;
+
 		}
 	
 		IEnumerator PowerSlotMachine ()
