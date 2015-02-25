@@ -39,6 +39,7 @@ public class CameraController : MonoBehaviour
 		public Sprite normalPowerFrame;
 		public Sprite activePowerFrame;
 		public GameController cont;
+		public CameraController opController;
 		XmlNode currentSequence;
 		// Use this for initialization
 		void Start ()
@@ -124,18 +125,13 @@ public class CameraController : MonoBehaviour
 				powerBorder.sprite = normalPowerFrame;
 				switch ((Powers)currentPower) {
 				case Powers.Shake:
-						this.gameObject.transform.localPosition = new Vector3 (startX, 0, -10);
-						ShakeCamera ();
-						this.gameObject.audio.PlayOneShot (Shake);
+						opController.ShakeCamera ();
 						break;
 				case Powers.Shrink:
-						shrinking = true;
-						StopCoroutine ("StopShrink");
-						StartCoroutine ("StopShrink");
-						this.gameObject.audio.PlayOneShot (Shrink);
+						opController.ShrinkCamera ();
 						break;
 				case Powers.Bombs:
-						//sequencer.bombs = true;
+						opController.spawnBombs = true;
 						break;
 				}
 		}
@@ -168,10 +164,22 @@ public class CameraController : MonoBehaviour
 
 		public void ShakeCamera ()
 		{
+				this.gameObject.transform.localPosition = new Vector3 (startX, 0, -10);
+				this.gameObject.audio.PlayOneShot (Shake);
 				iTween.ShakePosition (this.gameObject, iTween.Hash ("x", shakeX, "y", shakeY, "time", shakeTime, "looptype", "loop"));
 				Invoke ("StopTween", shakeEndTime);
 		}
 
+
+		public void ShrinkCamera ()
+		{
+				shrinking = true;
+				StopCoroutine ("StopShrink");
+				StartCoroutine ("StopShrink");
+				this.gameObject.audio.PlayOneShot (Shrink);
+		}
+	
+	
 		void ReduceSize ()
 		{
 				this.gameObject.camera.rect = iTween.RectUpdate (this.gameObject.camera.rect, new Rect (shrinkPos, 0.25f, 0.25f, 0.5f), 3.0f);

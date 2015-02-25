@@ -97,9 +97,6 @@ public class GameController : MonoBehaviour
 	
 		public void FinishedSequence (int _player)
 		{
-				/*		Destroy (playerOneSequencer.transform.GetChild (0).gameObject);
-				Destroy (playerTwoSequencer.transform.GetChild (0).gameObject);
-*/
 				if (_player == 1) {
 						playerOneScore++;
 						p1Score.text = playerOneScore.ToString ();
