@@ -39,6 +39,8 @@ public class GameController : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
+
+				numberOfSequences = PlayerPrefs.GetInt ("Rounds");
 				currentState = GameState.BETWEEN_ROUND;
 				prevState = GameState.NULL;
 
