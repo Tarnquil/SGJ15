@@ -3,15 +3,13 @@ using System.Collections;
 
 public class TapBomb : Obj
 {
-
-		public TapSequence sequence;
+		public CameraController cont;
 		public AudioClip Boom;
 		public override void OnTouch ()
 		{
 				base.OnTouch ();
-				this.gameObject.GetComponent<AudioSource> ().PlayOneShot (Boom);
-				sequence = this.gameObject.transform.parent.gameObject.GetComponent<TapSequence> ();
-				sequence.HitBomb ();
+				audio.PlayOneShot (Boom);
+				cont.HitBomb ();
 				iTween.Stop (this.gameObject);
 				ScaleOut ();
 		}

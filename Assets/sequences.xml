@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequences>
+	<sequence number="1">
+		<dot number="1" x="5" y="3"></dot>
+		<dot number="2" x="-3" y="-3"></dot>
+		<dot number="3" x="3" y="-3"></dot>
+		<dot number="4" x="-3" y="3"></dot>
+		<bomb number="1" x="0" y="0"></bomb> 
+	</sequence>
+	<sequence number="2">
+		<dot number="1" x="0" y="0"></dot>
+		<dot number="2" x="0.5" y="0"></dot>
+		<dot number="3" x="1" y="0"></dot>
+		<dot number="4" x="1.5" y="0"></dot>
+	</sequence>
+</sequences>
