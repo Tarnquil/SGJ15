@@ -64,9 +64,9 @@ public class GameController : MonoBehaviour
 						if (prevState != currentState) {
 								XmlNodeList sequenceNodes = sequencXML.SelectNodes (@"sequences/sequence");
 
-								currentSequence = Random.Range (0, sequenceNodes.Count);
-								playerOneCamera.StartSequence (sequenceNodes [currentSequence]);
-								playerTwoCamera.StartSequence (sequenceNodes [currentSequence]);
+								int selectedSequence = Random.Range (0, sequenceNodes.Count);
+								playerOneCamera.StartSequence (sequenceNodes [selectedSequence]);
+								playerTwoCamera.StartSequence (sequenceNodes [selectedSequence]);
 								//	playerOneSequencer.SpawnSequence (sequences [rnd]);
 								//	playerTwoSequencer.SpsequenceawnSequence (sequences [rnd]);
 						}
