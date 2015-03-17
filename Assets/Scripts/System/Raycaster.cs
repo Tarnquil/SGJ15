@@ -19,7 +19,9 @@ public class Raycaster : MonoBehaviour
 	
 		void Update ()
 		{
-				if (Input.GetMouseButtonDown (0)) {
+#if UNITY_EDITOR
+				if (Input.GetMouseButtonDown (0)) 
+		{
 						GameObject touched = TouchCheck (Input.mousePosition);
 						if (touched != null) {
 								if (touched.GetComponent<Obj> ()) {
@@ -36,7 +38,7 @@ public class Raycaster : MonoBehaviour
 
 						}
 				}
-
+#endif
 				/*if (Input.GetMouseButtonUp (0)) {
 						int index = -1;
 						for (int i = 0; i < draggingObjects.Count; i++) {
@@ -77,15 +79,19 @@ public class Raycaster : MonoBehaviour
 						}
 				}*/
 
-				if (Input.touchCount > 0) {
+				if (Input.touchCount > 0) 
+		{
 						
-						foreach (Touch touch in Input.touches) {
-								if (touch.phase == TouchPhase.Began) {
+						foreach (Touch touch in Input.touches) 
+			{
+								if (touch.phase == TouchPhase.Began) 
+				{
 										Debug.Log ("********Tapped " + this.gameObject.name);
 										GameObject touched = TouchCheck (touch.position);
 										if (touched != null) {
 												Debug.Log (touched.name);
-												if (touched.GetComponent<Obj> ()) {
+												if (touched.GetComponent<Obj> ()) 
+						{
 														touched.GetComponent<Obj> ().OnTouch ();
 												}
 										}
