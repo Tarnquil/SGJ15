@@ -15,6 +15,8 @@ public class CameraController : MonoBehaviour
 		public Sprite[] icons;
 		public int playerNumber = 0;
 		public int currentPower = 0;
+		public int randomPower = 0;
+		public int lastRandomPower = 0;
 		public int numberOfDotsInSequence;
 		public int tappedDots = 0;
 		public float shakeX = 1;
@@ -36,7 +38,9 @@ public class CameraController : MonoBehaviour
 		public GameObject background;
 		public Slider slider;
 		public Image activePower;
+		public Image randomPowerIcon;
 		public Image powerBorder;
+		public Image randomPowerBoarder;
 		public Sprite normalPowerFrame;
 		public Sprite activePowerFrame;
 		public GameController cont;
@@ -46,9 +50,14 @@ public class CameraController : MonoBehaviour
 		void Start ()
 		{
 				StartCoroutine ("PowerSlotMachine");
+				do {
+						randomPower = Random.Range (0, icons.Length);
+				} while( currentPower == randomPower);
+				randomPowerIcon.sprite = icons [randomPower];
+				lastRandomPower = randomPower;
 		}
-	
-		// Update is called once per frame
+
+// Update is called once per frame
 		void Update ()
 		{
 				if (Input.GetKeyDown (KeyCode.S)) {
@@ -124,6 +133,7 @@ public class CameraController : MonoBehaviour
 		{
 				slider.value = 0;
 				powerBorder.sprite = normalPowerFrame;
+				randomPowerBoarder.sprite = normalPowerFrame;
 				switch ((Powers)currentPower) {
 				case Powers.Shake:
 						opController.ShakeCamera ();
@@ -146,6 +156,7 @@ public class CameraController : MonoBehaviour
 				slider.value = Mathf.Clamp (slider.value, 0.0f, 1.0f);
 				if (slider.value == 1.0f) {
 						powerBorder.sprite = activePowerFrame;
+						randomPowerBoarder.sprite = activePowerFrame;
 				}
 		}
 
@@ -233,6 +244,13 @@ public class CameraController : MonoBehaviour
 						currentPower = 0;
 				}
 				activePower.sprite = icons [currentPower];
+
+				do {
+						randomPower = Random.Range (0, icons.Length);
+				} while( currentPower == randomPower || randomPower == lastRandomPower);
+
+				randomPowerIcon.sprite = icons [randomPower];
+
 				StartCoroutine ("PowerSlotMachine");
 		}
 }
