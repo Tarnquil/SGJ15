@@ -100,7 +100,7 @@ public class GameController : MonoBehaviour
 		{
 				if (_player == 1) {
 						playerOneScore++;
-						//	p1Score.text = playerOneScore.ToString ();
+						//p1Score.text = playerOneScore.ToString ();
 						playerTwoCamera.AddPower (powerBoost);
 				} else {
 						playerTwoScore++;
