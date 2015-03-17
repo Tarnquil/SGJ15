@@ -81,7 +81,7 @@ public class Raycaster : MonoBehaviour
 						
 						foreach (Touch touch in Input.touches) {
 								if (touch.phase == TouchPhase.Began) {
-										//	debugText.text = "Tapped";
+										Debug.Log ("********Tapped " + this.gameObject.name);
 										GameObject touched = TouchCheck (touch.position);
 										if (touched != null) {
 												Debug.Log (touched.name);
