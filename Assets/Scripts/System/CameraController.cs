@@ -9,7 +9,8 @@ public class CameraController : MonoBehaviour
 		{
 				Shake,
 				Shrink,
-				Bombs
+				Bombs,
+				Freeze
 		}
 		public Sprite[] icons;
 		public int playerNumber = 0;
@@ -133,6 +134,9 @@ public class CameraController : MonoBehaviour
 				case Powers.Bombs:
 						opController.spawnBombs = true;
 						break;
+				case Powers.Freeze:
+						opController.FreezeDots ();
+						break;
 				}
 		}
 
@@ -178,7 +182,15 @@ public class CameraController : MonoBehaviour
 				StartCoroutine ("StopShrink");
 				this.gameObject.audio.PlayOneShot (Shrink);
 		}
-	
+
+		void FreezeDots ()
+		{
+				for (int i = 0; i < background.transform.childCount; i++) {
+						if (background.transform.GetChild (i).GetComponent<TapObject> ()) {
+								background.transform.GetChild (i).GetComponent<TapObject> ().Freeze ();
+						}
+				}
+		}
 	
 		void ReduceSize ()
 		{

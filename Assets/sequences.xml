@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sequences>
-	<!-- <sequence number="1">
+	 <sequence number="1">
 		<dot number="1" x="8" y="4"></dot>
 		<dot number="2" x="-8" y="4"></dot>
 		<dot number="3" x="8" y="-4"></dot>
@@ -9,7 +9,7 @@
 		<bomb numer="2" x="8" y ="0"></bomb>
 		<bomb numer="3" x="0" y ="-4"></bomb>
 		<bomb numer="4" x="-8" y ="0"></bomb>
-	</sequence> -->
+	</sequence>
 	<sequence number="2">
 		<bomb number="1" x="8" y="4"></bomb>
 		<bomb number="2" x="8" y="2"></bomb>
