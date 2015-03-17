@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour
 		public Text p2Score;
 		public CameraController playerOneCamera;
 		public CameraController playerTwoCamera;
+		public Slider scoreSlider;
 
 		XmlDocument sequencXML;
 		// Use this for initialization
@@ -99,13 +100,20 @@ public class GameController : MonoBehaviour
 		{
 				if (_player == 1) {
 						playerOneScore++;
-						p1Score.text = playerOneScore.ToString ();
+						//	p1Score.text = playerOneScore.ToString ();
 						playerTwoCamera.AddPower (powerBoost);
 				} else {
 						playerTwoScore++;
-						p2Score.text = playerTwoScore.ToString ();
+						//p2Score.text = playerTwoScore.ToString ();
 						playerOneCamera.AddPower (powerBoost);
 				}
+
+				float scoreSliderValue = 0.5f - ((playerOneScore - playerTwoScore) * 0.1f);
+
+				scoreSliderValue = Mathf.Clamp (scoreSliderValue, 0.0f, 1.0f);
+
+				scoreSlider.value = scoreSliderValue;
+
 				playerOneCamera.KillChildren ();
 				playerTwoCamera.KillChildren ();
 				currentSequence++;
