@@ -5,6 +5,7 @@
 		<dot number="2" x="-8" y="4"></dot>
 		<dot number="3" x="8" y="-4"></dot>
 		<dot number="4" x="-8" y="-4"></dot>
+		
 		<bomb numer="1" x="0" y ="4"></bomb>
 		<bomb numer="2" x="8" y ="0"></bomb>
 		<bomb numer="3" x="0" y ="-4"></bomb>
