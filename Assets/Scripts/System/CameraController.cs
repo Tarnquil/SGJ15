@@ -10,7 +10,9 @@ public class CameraController : MonoBehaviour
 				Shake,
 				Shrink,
 				Bombs,
-				Freeze
+				Freeze,
+				Static
+	
 		}
 		public Sprite[] icons;
 		public int playerNumber = 0;
