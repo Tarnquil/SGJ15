@@ -25,6 +25,7 @@ public class CameraController : MonoBehaviour
 		public float shakeY = 1;
 		public float shakeTime = 1;
 		public float shakeEndTime = 5;
+		public float staticTime;
 		public float rotatePowerTimer;
 		public AudioClip Shake;
 		public AudioClip Shrink;
@@ -45,6 +46,7 @@ public class CameraController : MonoBehaviour
 		public Image randomPowerBoarder;
 		public Sprite normalPowerFrame;
 		public Sprite activePowerFrame;
+		public SpriteRenderer staticImage;
 		public GameController cont;
 		public CameraController opController;
 		XmlNode currentSequence;
@@ -150,6 +152,9 @@ public class CameraController : MonoBehaviour
 						case Powers.Freeze:
 								opController.FreezeDots ();
 								break;
+						case Powers.Static:
+								opController.StartStatic ();
+								break;
 						}
 				}
 		}
@@ -172,6 +177,9 @@ public class CameraController : MonoBehaviour
 								break;
 						case Powers.Freeze:
 								opController.FreezeDots ();
+								break;
+						case Powers.Static:
+								opController.StartStatic ();
 								break;
 						}
 				}
@@ -211,7 +219,12 @@ public class CameraController : MonoBehaviour
 				iTween.ShakePosition (this.gameObject, iTween.Hash ("x", shakeX, "y", shakeY, "time", shakeTime, "looptype", "loop"));
 				Invoke ("StopTween", shakeEndTime);
 		}
-
+		public void StartStatic ()
+		{
+				staticImage.enabled = true;
+				StopCoroutine ("StaticTimer");
+				StartCoroutine ("StaticTimer");
+		}
 
 		public void ShrinkCamera ()
 		{
@@ -255,6 +268,15 @@ public class CameraController : MonoBehaviour
 						}
 				}
 		}
+
+
+		
+		IEnumerator	StaticTimer ()
+		{
+				yield return new WaitForSeconds (staticTime);
+				staticImage.enabled = false;
+		}
+
 
 		IEnumerator StopShrink ()
 		{
