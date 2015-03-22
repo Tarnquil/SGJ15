@@ -131,43 +131,47 @@ public class CameraController : MonoBehaviour
 
 		public void UsePower ()
 		{
-				slider.value = 0;
-				powerBorder.sprite = normalPowerFrame;
-				randomPowerBoarder.sprite = normalPowerFrame;
-				switch ((Powers)currentPower) {
-				case Powers.Shake:
-						opController.ShakeCamera ();
-						break;
-				case Powers.Shrink:
-						opController.ShrinkCamera ();
-						break;
-				case Powers.Bombs:
-						opController.spawnBombs = true;
-						break;
-				case Powers.Freeze:
-						opController.FreezeDots ();
-						break;
+				if (slider.value == 1) {
+						slider.value = 0;
+						powerBorder.sprite = normalPowerFrame;
+						randomPowerBoarder.sprite = normalPowerFrame;
+						switch ((Powers)currentPower) {
+						case Powers.Shake:
+								opController.ShakeCamera ();
+								break;
+						case Powers.Shrink:
+								opController.ShrinkCamera ();
+								break;
+						case Powers.Bombs:
+								opController.spawnBombs = true;
+								break;
+						case Powers.Freeze:
+								opController.FreezeDots ();
+								break;
+						}
 				}
 		}
 
 		public void UseRandomPower ()
 		{
-				slider.value = 0;
-				powerBorder.sprite = normalPowerFrame;
-				randomPowerBoarder.sprite = normalPowerFrame;
-				switch ((Powers)randomPower) {
-				case Powers.Shake:
-						opController.ShakeCamera ();
-						break;
-				case Powers.Shrink:
-						opController.ShrinkCamera ();
-						break;
-				case Powers.Bombs:
-						opController.spawnBombs = true;
-						break;
-				case Powers.Freeze:
-						opController.FreezeDots ();
-						break;
+				if (slider.value == 1) {
+						slider.value = 0;
+						powerBorder.sprite = normalPowerFrame;
+						randomPowerBoarder.sprite = normalPowerFrame;
+						switch ((Powers)randomPower) {
+						case Powers.Shake:
+								opController.ShakeCamera ();
+								break;
+						case Powers.Shrink:
+								opController.ShrinkCamera ();
+								break;
+						case Powers.Bombs:
+								opController.spawnBombs = true;
+								break;
+						case Powers.Freeze:
+								opController.FreezeDots ();
+								break;
+						}
 				}
 		}
 	
