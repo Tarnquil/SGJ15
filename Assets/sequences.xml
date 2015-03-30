@@ -1,15 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sequences>
-	 <sequence number="1">
+<!--	 <sequence number="1">
 		<dot number="1" y="1.5" x="2.5"></dot>
 		<dot number="2" y="-1.5" x="2.5"></dot>
 		<dot number="3" y="1.5" x="-2.5"></dot>
 		<dot number="4" y="-1.5" x="-2.5"></dot>
 		
-		<bomb numer="1" y="0" x="2.5"></bomb>
-		<bomb numer="2" y="1.5" x="0"></bomb>
-		<bomb numer="3" y="0" x="-2.5"></bomb>
-		<bomb numer="4" y="-1.5" x="0"></bomb>
+		<bomb number="1" y="0" x="2.5"></bomb>
+		<bomb number="2" y="1.5" x="0"></bomb>
+		<bomb number="3" y="0" x="-2.5"></bomb>
+		<bomb number="4" y="-1.5" x="0"></bomb>
+	</sequence>
+	
+	 <sequence number="2" name="A">
+		<dot number="1" y="0" x="2"></dot>
+		<dot number="2" y="-0.5" x="1"></dot>
+		<dot number="3" y="0.5" x="1.5"></dot>
+		<dot number="4" y="-1.5" x="0.5"></dot>
+		<dot number="5" y="-1.5" x="0.5"></dot>
+		<dot number="6" y="-1.5" x="0.5"></dot>
+		
+		<bomb number="1" y="0" x="2.5"></bomb>
+		<bomb number="2" y="1.5" x="0"></bomb>
+		<bomb number="3" y="0" x="-2.5"></bomb>
+		<bomb number="4" y="-1.5" x="0"></bomb>
+	</sequence>-->
+	
+	 <sequence number="3" name="B">
+		<dot number="1" y="1.2" x="2"></dot>
+		<dot number="2" y="1.2" x="1"></dot>
+		<dot number="3" y="1.2" x="0"></dot>
+		<dot number="4" y="1.2" x="-1"></dot>
+		<dot number="5" y="1.2" x="-2"></dot>
+		<dot number="6" y="0.8" x="0.5"></dot>
+		<dot number="7" y="-1.5" x="0.5"></dot>
+		<dot number="8" y="-1.5" x="0.5"></dot>
+		
+		<bomb number="1" y="0" x="2.5"></bomb>
+		<bomb number="2" y="1.5" x="0"></bomb>
+		<bomb number="3" y="0" x="-2.5"></bomb>
+		<bomb number="4" y="-1.5" x="0"></bomb>
 	</sequence>
 <!--	<sequence number="2">
 		<bomb number="1" x="8" y="4"></bomb>
