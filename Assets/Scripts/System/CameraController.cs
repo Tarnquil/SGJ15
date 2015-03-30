@@ -93,7 +93,7 @@ public class CameraController : MonoBehaviour
 
 		IEnumerator SpawnDots ()
 		{
-				XmlNodeList dots = currentSequence.SelectNodes (@"dot");
+				XmlNodeList dots = currentSequence.SelectNodes (@"dots/dot");
 				numberOfDotsInSequence = dots.Count;
 				for (int i = 0; i< dots.Count; i++) {
 			
@@ -114,7 +114,7 @@ public class CameraController : MonoBehaviour
 
 		IEnumerator SpawnBombs ()
 		{
-				XmlNodeList dots = currentSequence.SelectNodes (@"bomb");
+				XmlNodeList dots = currentSequence.SelectNodes (@"bombs/bomb");
 				for (int i = 0; i< dots.Count; i++) {
 			
 						yield return new WaitForSeconds (timeBetweenDots);

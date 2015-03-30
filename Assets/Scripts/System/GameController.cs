@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour
 			
 				case GameState.IN_ROUND: 
 						if (prevState != currentState) {
-								XmlNodeList sequenceNodes = sequencXML.SelectNodes (@"sequences/sequence");
+					XmlNodeList sequenceNodes = sequencXML.SelectNodes (@"sequencesroot/sequences/sequence");
 
 								int selectedSequence = Random.Range (0, sequenceNodes.Count);
 								playerOneCamera.StartSequence (sequenceNodes [selectedSequence]);

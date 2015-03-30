@@ -76,7 +76,9 @@ public class SequenceCreator : MonoBehaviour
 		}
 		else if(positioning)
 		{
-			spawnedObject.transform.localPosition = new Vector3(Mathf.Clamp(tmpLocalPos.x,-2.5f,2.5f) ,Mathf.Clamp( tmpLocalPos.y,-1.5f,1.5f),1);
+			tmpLocalPos.x = Mathf.Round(tmpLocalPos.x * 10f) / 10f;
+			tmpLocalPos.y = Mathf.Round(tmpLocalPos.y * 10f) / 10f;
+			spawnedObject.transform.localPosition = new Vector3(Mathf.Clamp(tmpLocalPos.x,-2.5f,2.5f),Mathf.Clamp( tmpLocalPos.y,-1.5f,1.5f),1);
 
 		}
 
@@ -87,16 +89,16 @@ public class SequenceCreator : MonoBehaviour
 			{
 				Dot newDot = new Dot();
 				newDot.Number = (sequence.Dots.Count+1).ToString();
-				newDot.X = spawnedObject.transform.localPosition.y.ToString();
-				newDot.Y = spawnedObject.transform.localPosition.x.ToString();
+				newDot.X = spawnedObject.transform.localPosition.x.ToString();
+				newDot.Y = spawnedObject.transform.localPosition.y.ToString();
 				sequence.Dots.Add(newDot);
 			}
 			else if (spawnedObject.tag == "bombObject");
 			{
 				Bomb newBomb = new Bomb();
 				newBomb.Number = (sequence.Bombs.Count+1).ToString();
-				newBomb.X = spawnedObject.transform.localPosition.y.ToString();
-				newBomb.Y = spawnedObject.transform.localPosition.x.ToString();
+				newBomb.X = spawnedObject.transform.localPosition.x.ToString();
+				newBomb.Y = spawnedObject.transform.localPosition.y.ToString();
 				sequence.Bombs.Add(newBomb);
 			}
 			spawnedObject = null;
