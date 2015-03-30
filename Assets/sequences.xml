@@ -1,94 +1,88 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<sequences>
-<!--	 <sequence number="1">
-		<dot number="1" y="1.5" x="2.5"></dot>
-		<dot number="2" y="-1.5" x="2.5"></dot>
-		<dot number="3" y="1.5" x="-2.5"></dot>
-		<dot number="4" y="-1.5" x="-2.5"></dot>
-		
-		<bomb number="1" y="0" x="2.5"></bomb>
-		<bomb number="2" y="1.5" x="0"></bomb>
-		<bomb number="3" y="0" x="-2.5"></bomb>
-		<bomb number="4" y="-1.5" x="0"></bomb>
-	</sequence>
-	
-	 <sequence number="2" name="A">
-		<dot number="1" y="0" x="2"></dot>
-		<dot number="2" y="-0.5" x="1"></dot>
-		<dot number="3" y="0.5" x="1.5"></dot>
-		<dot number="4" y="-1.5" x="0.5"></dot>
-		<dot number="5" y="-1.5" x="0.5"></dot>
-		<dot number="6" y="-1.5" x="0.5"></dot>
-		
-		<bomb number="1" y="0" x="2.5"></bomb>
-		<bomb number="2" y="1.5" x="0"></bomb>
-		<bomb number="3" y="0" x="-2.5"></bomb>
-		<bomb number="4" y="-1.5" x="0"></bomb>
-	</sequence>-->
-	
-	 <sequence number="3" name="B">
-		<dot number="1" y="1.2" x="2"></dot>
-		<dot number="2" y="1.2" x="1"></dot>
-		<dot number="3" y="1.2" x="0"></dot>
-		<dot number="4" y="1.2" x="-1"></dot>
-		<dot number="5" y="1.2" x="-2"></dot>
-		<dot number="6" y="0.8" x="0.5"></dot>
-		<dot number="7" y="-1.5" x="0.5"></dot>
-		<dot number="8" y="-1.5" x="0.5"></dot>
-		
-		<bomb number="1" y="0" x="2.5"></bomb>
-		<bomb number="2" y="1.5" x="0"></bomb>
-		<bomb number="3" y="0" x="-2.5"></bomb>
-		<bomb number="4" y="-1.5" x="0"></bomb>
-	</sequence>
-<!--	<sequence number="2">
-		<bomb number="1" x="8" y="4"></bomb>
-		<bomb number="2" x="8" y="2"></bomb>
-		<bomb number="3" x="8" y="0"></bomb>
-		<bomb number="4" x="8" y="-2"></bomb>
-		<bomb number="5" x="8" y="-4"></bomb>
-		<bomb number="6" x="6" y="-4"></bomb>
-		<bomb number="7" x="4" y="-4"></bomb>
-		<bomb number="8" x="2" y="-4"></bomb>
-		<bomb number="9" x="0" y="-4"></bomb>
-		<bomb number="10" x="-2" y="-4"></bomb>
-		<bomb number="11" x="-4" y="-4"></bomb>
-		<bomb number="12" x="-6" y="-4"></bomb>
-		<bomb number="13" x="-8" y="-4"></bomb>
-		<bomb number="14" x="-8" y="-2"></bomb>
-		<bomb number="15" x="-8" y="0"></bomb>
-		<bomb number="16" x="-8" y="2"></bomb>
-		<bomb number="17" x="-8" y="4"></bomb>
-		<bomb number="18" x="-6" y="4"></bomb>
-		<bomb number="19" x="-4" y="4"></bomb>
-		<bomb number="20" x="-2" y="4"></bomb>
-		<bomb number="21" x="0" y="4"></bomb>
-		<bomb number="22" x="2" y="4"></bomb>
-		<bomb number="23" x="4" y="4"></bomb>
-		<bomb number="24" x="4" y="2"></bomb>
-		<bomb number="25" x="4" y="0"></bomb>
-		<bomb number="26" x="2" y="0"></bomb>
-		<bomb number="27" x="0" y="0"></bomb>
-		<bomb number="28" x="-2" y="0"></bomb>
-		<bomb number="29" x="-4" y="0"></bomb>
-		
-		<dot number="1" x="6" y ="4"></dot>
-		<dot number="2" x="6" y ="2"></dot>
-		<dot number="3" x="6" y ="0"></dot>
-		<dot number="4" x="6" y ="-2"></dot>
-		<dot number="5" x="4" y ="-2"></dot>
-		<dot number="6" x="2" y ="-2"></dot>
-		<dot number="7" x="0" y ="-2"></dot>
-		<dot number="8" x="-2" y ="-2"></dot>
-		<dot number="9" x="-4" y ="-2"></dot>
-		<dot number="10" x="-6" y ="-2"></dot>
-		<dot number="11" x="-6" y ="0"></dot>
-		<dot number="12" x="-6" y ="2"></dot>
-		<dot number="13" x="-4" y ="2"></dot>
-		<dot number="14" x="-2" y ="2"></dot>
-		<dot number="15" x="0" y ="2"></dot>
-		<dot number="16" x="2" y ="2"></dot>
-		
-		
-	</sequence> -->
-</sequences>
+<?xml version="1.0" encoding="us-ascii"?>
+<sequencesroot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <sequences>
+    <sequence number="1">
+      <dots>
+        <dot number="1" y="1.5" x="2.5" />
+        <dot number="2" y="-1.5" x="2.5" />
+        <dot number="3" y="1.5" x="-2.5" />
+        <dot number="4" y="-1.5" x="-2.5" />
+      </dots>
+      <bombs>
+        <bomb number="1" y="0" x="2.5" />
+        <bomb number="2" y="1.5" x="0" />
+        <bomb number="3" y="0" x="-2.5" />
+        <bomb number="4" y="-1.5" x="0" />
+      </bombs>
+    </sequence>
+    <sequence number="2" name="A">
+      <dots>
+        <dot number="1" y="0" x="2" />
+        <dot number="2" y="-0.5" x="1" />
+        <dot number="3" y="0.5" x="1.5" />
+        <dot number="4" y="-1.5" x="0.5" />
+        <dot number="5" y="-1.5" x="0.5" />
+        <dot number="6" y="-1.5" x="0.5" />
+      </dots>
+      <bombs>
+        <bomb number="1" y="0" x="2.5" />
+        <bomb number="2" y="1.5" x="0" />
+        <bomb number="3" y="0" x="-2.5" />
+        <bomb number="4" y="-1.5" x="0" />
+      </bombs>
+    </sequence>
+    <sequence number="3" name="B">
+      <dots>
+        <dot number="1" y="1.2" x="2" />
+        <dot number="2" y="1.2" x="1" />
+        <dot number="3" y="1.2" x="0" />
+        <dot number="4" y="1.2" x="-1" />
+        <dot number="5" y="1.2" x="-2" />
+        <dot number="6" y="0.8" x="0.5" />
+        <dot number="7" y="-1.5" x="0.5" />
+        <dot number="8" y="-1.5" x="0.5" />
+      </dots>
+      <bombs>
+        <bomb number="1" y="0" x="2.5" />
+        <bomb number="2" y="1.5" x="0" />
+        <bomb number="3" y="0" x="-2.5" />
+        <bomb number="4" y="-1.5" x="0" />
+      </bombs>
+    </sequence>
+    <sequence number="4" name="">
+      <dots>
+        <dot number="1" y="1.607948" x="-0.4222317" />
+        <dot number="2" y="-0.5732862" x="-0.01706534" />
+        <dot number="3" y="0.4050283" x="-0.8616752" />
+        <dot number="4" y="0.7314058" x="0.3991774" />
+        <dot number="5" y="-0.9309676" x="0.7436588" />
+      </dots>
+      <bombs>
+        <bomb number="1" y="1.607948" x="-0.4222317" />
+        <bomb number="2" y="-0.5732862" x="-0.01706534" />
+        <bomb number="3" y="0.4050283" x="-0.8616752" />
+        <bomb number="4" y="0.7314058" x="0.3991774" />
+        <bomb number="5" y="-0.9309676" x="0.7436588" />
+        <bomb number="6" y="-1.871647" x="-0.7895513" />
+        <bomb number="7" y="0.3935387" x="1.053931" />
+        <bomb number="8" y="1.745364" x="0.9420436" />
+      </bombs>
+    </sequence>
+    <sequence number="5" name="">
+      <dots>
+        <dot number="1" y="1.92376" x="-0.4663575" />
+        <dot number="2" y="0.8812727" x="-0.3010904" />
+        <dot number="3" y="0.005513961" x="0.3337645" />
+        <dot number="4" y="-0.8531707" x="-0.5053585" />
+        <dot number="5" y="-1.014776" x="0.1802984" />
+      </dots>
+      <bombs>
+        <bomb number="1" y="1.92376" x="-0.4663575" />
+        <bomb number="2" y="0.8812727" x="-0.3010904" />
+        <bomb number="3" y="0.005513961" x="0.3337645" />
+        <bomb number="4" y="-0.8531707" x="-0.5053585" />
+        <bomb number="5" y="-1.014776" x="0.1802984" />
+      </bombs>
+    </sequence>
+  </sequences>
+</sequencesroot>
