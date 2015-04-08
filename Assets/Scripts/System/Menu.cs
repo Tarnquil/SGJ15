@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class Menu : MonoBehaviour
 {
 
+		public void Start()
+		{
+			//LeanTween.move(GameObject go, Vector3 to, float speed );
+		}
 		public void StartButton3 ()
 		{
 				PlayerPrefs.SetInt ("Rounds", 3);
