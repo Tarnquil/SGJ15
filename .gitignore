@@ -11,3 +11,7 @@ Temp
 *.sln
 *.userprefs
 *.apk
+
+*.sublime-project
+
+*.sublime-workspace
