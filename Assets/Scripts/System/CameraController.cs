@@ -30,6 +30,7 @@ public class CameraController : MonoBehaviour
 		public AudioClip Shake;
 		public AudioClip Shrink;
 		public AudioClip Expand;
+		public AudioClip Freeze;
 		public bool spawnBombs;
 		public bool shrinking = false;
 		public float shrinkPos = 0.12f;
@@ -241,6 +242,7 @@ public class CameraController : MonoBehaviour
 								background.transform.GetChild (i).GetComponent<TapObject> ().Freeze ();
 						}
 				}
+				this.gameObject.audio.PlayOneShot (Freeze);
 		}
 	
 		void ReduceSize ()
