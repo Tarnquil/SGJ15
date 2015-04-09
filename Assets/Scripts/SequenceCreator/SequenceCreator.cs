@@ -28,7 +28,7 @@ public class SequenceCreator : MonoBehaviour
 
 				//Debug.Log(Input.mousePosition);
 				Vector3 tmpVec = cam.ScreenToWorldPoint (Input.mousePosition);
-				Vector3 tmpLocalPos = parentObject.InverseTransformPoint (tmpVec);
+				Vector3 tmpLocalPos = parentObject.InverseTransformPoint(tmpVec);
 				//Debug.Log(tmpLocalPos);
 				if (!positioning && ((tmpLocalPos.x < 2.5f && tmpLocalPos.x > -2.5f) && ((tmpLocalPos.y < 1.5f && tmpLocalPos.y > -1.5f)))) {
 						if (Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.RightShift)) {
