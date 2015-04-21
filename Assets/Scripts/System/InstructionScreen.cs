@@ -3,23 +3,33 @@ using System.Collections;
 
 public class InstructionScreen : MonoBehaviour
 {
-		public GameObject page1;
-		public GameObject page2;
+		public GameObject[] pages;
+		public int currentPage = 0;
 	
-		public void OpenPage1 ()
+
+		public void Start ()
 		{
-				Debug.Log ("Working");
-				page2.SetActive (false);
-				page1.SetActive (true);
-				Debug.Log ("Working");
+				ChangePage (currentPage);
 		}
 
-		public void OpenPage2 ()
+		void ChangePage (int _pageToChangeTo)
 		{
-				Debug.Log ("Working");
-				page2.SetActive (true);
-				page1.SetActive (false);
-				Debug.Log ("Working");
+				foreach (GameObject page in pages) {
+						page.SetActive (false);
+				}
+				pages [currentPage].SetActive (true);
+		}
+
+		public void ForwardPage ()
+		{
+				currentPage++;
+				ChangePage (currentPage);
+		}
+
+		public void BackPage ()
+		{
+				currentPage--;
+				ChangePage (currentPage);
 		}
 
 		public void LoadMainMenu ()
