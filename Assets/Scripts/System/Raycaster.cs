@@ -100,7 +100,7 @@ public class Raycaster : MonoBehaviour
 		{
 				Vector3 hitThing = _point;
 				hitThing.z = 10;
-				Vector3 wp = this.gameObject.camera.ScreenToWorldPoint (hitThing);
+				Vector3 wp = this.gameObject.GetComponent<Camera>().ScreenToWorldPoint (hitThing);
 				Vector2 touchPos = new Vector2 (wp.x, wp.y);
 				Collider2D hit = Physics2D.OverlapCircle (touchPos, 0.5f);
 				if (hit != null) {

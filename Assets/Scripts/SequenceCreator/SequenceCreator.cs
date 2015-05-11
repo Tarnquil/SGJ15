@@ -58,7 +58,7 @@ public class SequenceCreator : MonoBehaviour
 					Collider2D hit = Physics2D.OverlapCircle(touchPos, 0.2f);
 					if (hit != null)
 					{
-						if (hit.collider2D.tag == "tapObject" || hit.collider2D.tag == "bombObject")
+						if (hit.GetComponent<Collider2D>().tag == "tapObject" || hit.GetComponent<Collider2D>().tag == "bombObject")
 						{
 							Destroy(hit.gameObject);
 						}

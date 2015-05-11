@@ -31,7 +31,7 @@ public class TapObject : Obj
             base.OnTouch();
             Debug.Log("******* touched " + this.gameObject.name);
             cont.HitDot();
-            this.gameObject.collider2D.enabled = false;
+            this.gameObject.GetComponent<Collider2D>().enabled = false;
             this.gameObject.GetComponent<AudioSource>().PlayOneShot(tap);
             iTween.Stop(this.gameObject);
             ScaleOut();

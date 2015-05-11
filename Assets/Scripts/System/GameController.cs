@@ -150,14 +150,14 @@ public class GameController : MonoBehaviour
 			
 						playerOneCountDown.text = (betweenRounds - i).ToString ();
 						playerTwoCountDown.text = (betweenRounds - i).ToString ();
-						this.gameObject.audio.PlayOneShot (countDown);
+						this.gameObject.GetComponent<AudioSource>().PlayOneShot (countDown);
 						yield return new WaitForSeconds (1.0f);
 				}
 		
 				playerOneCountDown.enabled = false;
 				playerTwoCountDown.enabled = false;
 		
-				this.gameObject.audio.PlayOneShot (GO);
+				this.gameObject.GetComponent<AudioSource>().PlayOneShot (GO);
 		
 				pauseButton.SetActive (false);
 				scoreParticles.SetActive (true);

@@ -8,7 +8,7 @@ public class TapBomb : Obj
 		public override void OnTouch ()
 		{
 				base.OnTouch ();
-				audio.PlayOneShot (Boom);
+				GetComponent<AudioSource>().PlayOneShot (Boom);
 				cont.HitBomb ();
 				iTween.Stop (this.gameObject);
 				ScaleOut ();
