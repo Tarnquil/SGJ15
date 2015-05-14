@@ -51,7 +51,7 @@ public class Obj : MonoBehaviour
 
 		void TurnOnCollider ()
 		{
-				this.gameObject.collider2D.enabled = true;
+				this.gameObject.GetComponent<Collider2D>().enabled = true;
 		}
 
 }

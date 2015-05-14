@@ -228,7 +228,7 @@ public class CameraController : MonoBehaviour
 		public void ShakeCamera ()
 		{
 				this.gameObject.transform.localPosition = new Vector3 (startX, 0, -10);
-				this.gameObject.audio.PlayOneShot (Shake);
+				this.gameObject.GetComponent<AudioSource>().PlayOneShot (Shake);
 				iTween.ShakePosition (this.gameObject, iTween.Hash ("x", shakeX, "y", shakeY, "time", shakeTime, "looptype", "loop"));
 				Invoke ("StopTween", shakeEndTime);
 		}
@@ -244,7 +244,7 @@ public class CameraController : MonoBehaviour
 				shrinking = true;
 				StopCoroutine ("StopShrink");
 				StartCoroutine ("StopShrink");
-				this.gameObject.audio.PlayOneShot (Shrink);
+				this.gameObject.GetComponent<AudioSource>().PlayOneShot (Shrink);
 		}
 
 		void FreezeDots ()
@@ -254,17 +254,17 @@ public class CameraController : MonoBehaviour
 								background.transform.GetChild (i).GetComponent<TapObject> ().Freeze ();
 						}
 				}
-				this.gameObject.audio.PlayOneShot (Freeze);
+				this.gameObject.GetComponent<AudioSource>().PlayOneShot (Freeze);
 		}
 	
 		void ReduceSize ()
 		{
-				this.gameObject.camera.rect = iTween.RectUpdate (this.gameObject.camera.rect, new Rect (shrinkPos, 0.25f, 0.25f, 0.5f), 3.0f);
+				this.gameObject.GetComponent<Camera>().rect = iTween.RectUpdate (this.gameObject.GetComponent<Camera>().rect, new Rect (shrinkPos, 0.25f, 0.25f, 0.5f), 3.0f);
 		}
 
 		void IncreaseSize ()
 		{
-				this.gameObject.camera.rect = iTween.RectUpdate (this.gameObject.camera.rect, new Rect (normalPos, 0, 0.5f, 1), 3.0f);
+				this.gameObject.GetComponent<Camera>().rect = iTween.RectUpdate (this.gameObject.GetComponent<Camera>().rect, new Rect (normalPos, 0, 0.5f, 1), 3.0f);
 		}
 
 		void StopTween ()
@@ -296,7 +296,7 @@ public class CameraController : MonoBehaviour
 		{
 				yield return new WaitForSeconds (5.0f);
 				shrinking = false;
-				this.gameObject.audio.PlayOneShot (Expand);
+				this.gameObject.GetComponent<AudioSource>().PlayOneShot (Expand);
 		}
 
 		IEnumerator PowerSlotMachine ()

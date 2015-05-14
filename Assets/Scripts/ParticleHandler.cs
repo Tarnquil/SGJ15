@@ -7,13 +7,13 @@ public class ParticleHandler : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		particleSystem.renderer.sortingLayerName = sortLayer;
+		GetComponent<ParticleSystem>().GetComponent<Renderer>().sortingLayerName = sortLayer;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if(!particleSystem.IsAlive())
+		if(!GetComponent<ParticleSystem>().IsAlive())
 		{
 			Destroy(this.gameObject);
 		}
